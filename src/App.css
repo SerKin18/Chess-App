@@ -37,3 +37,12 @@
 .white {
   background-color: rgb(196, 173, 130);
 }
+.selected{
+	background-color:rgb(85, 51, 76)
+}
+.available{
+	height: 12px;
+	width:12px;
+	border-radius: 50%;
+	background-color:rgb(50, 119, 50);
+}
