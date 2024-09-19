@@ -46,3 +46,27 @@
 	border-radius: 50%;
 	background-color:rgb(50, 119, 50);
 }
+.lost{
+	height: calc(50vh-60px);
+	padding: 30px;
+	margin-left: 50px;
+	background-color:lightslategray
+}
+.lost img{
+	height: 20px;
+	width: 20px;
+}
+.timer{
+	margin-right: 10px;
+}
+.timer h2{
+margin: 10px;
+}
+.button-restart{
+ padding: 15px 20px;
+ background-color:rgb(50, 119, 50);
+ border:1px solid rgb(50, 119, 50);
+ border-radius: 10px;
+ font-size: 25px;
+ 
+}
