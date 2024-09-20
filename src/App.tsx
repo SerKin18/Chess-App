@@ -9,8 +9,8 @@ import LostFigures from "./components/LostFigures";
 import Timer from "./components/Timer";
 function App() {
   const [board, setBoard] = useState(new Board());
-  const [whitePlayer, setWhitePlayer] = useState(new Player(Colors.WHITE));
-  const [blackPlayer, setBlackPlayer] = useState(new Player(Colors.BLACK));
+  const whitePlayer = new Player(Colors.WHITE);
+  const blackPlayer = new Player(Colors.BLACK);
   const [currentPlayer, setCurrentPlayer] = useState<Player | null>(null);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ function App() {
 
   return (
     <div className="app">
-		<Timer currentPlayer={currentPlayer} restart={restart}/>
+      <Timer currentPlayer={currentPlayer} restart={restart} />
       <BoardComponent
         board={board}
         setBoard={setBoard}
@@ -41,8 +41,8 @@ function App() {
       />
 
       <div>
-        <LostFigures title="Игрок  WHITE " figures={board.lostBlackFigures} />
-        <LostFigures title="Игрок BLACK" figures={board.lostWhiteFigures} />
+        <LostFigures title="Player WHITE " figures={board.lostBlackFigures} />
+        <LostFigures title="Player BLACK" figures={board.lostWhiteFigures} />
       </div>
     </div>
   );

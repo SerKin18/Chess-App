@@ -9,7 +9,7 @@ export class King extends Figure {
   constructor(color: Colors, cell: Cell) {
     super(color, cell);
     this.logo = color === Colors.BLACK ? blackLogo : whiteLogo;
-    this.name = FigureNames.BISHOP;
+    this.name = FigureNames.KING;
   }
 
   canMove(target: Cell): boolean {
@@ -17,25 +17,22 @@ export class King extends Figure {
       return false;
     }
     if (
-      (target.y === this.cell.y + 1 || target.y === this.cell.y - 1) &&
-      (target.x === this.cell.x + 1 || target.x === this.cell.x - 1) &&
-      this.cell.board.getCell(target.x, target.y).isEmpty()
+      Math.abs(target.x - this.cell.x) > 1 ||
+      Math.abs(target.y - this.cell.y) > 1
     ) {
+      return false;
+    }
+    if (this.cell.isEmptyDiagonal(target)) {
       return true;
     }
-    if (
-      (target.y === this.cell.y + 1 || target.y === this.cell.y - 1) &&
-      target.x === this.cell.x &&
-      this.cell.board.getCell(target.x, target.y).isEmpty()
-    ) {
+    if (this.cell.isEmptyVertical(target)) {
       return true;
     }
-    if (
-      (target.x === this.cell.x + 1 || target.x === this.cell.x - 1) &&
-      target.y === this.cell.y &&
-      this.cell.board.getCell(target.x, target.y).isEmpty()
-    ) {
+    if (this.cell.isEmptyHorizontal(target)) {
       return true;
+    }
+	 if (!this.cell.board.isCellUnderAttack(target, this.color)) {
+      return false;
     }
 
     return false;

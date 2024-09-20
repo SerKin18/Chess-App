@@ -41,7 +41,7 @@ const BoardComponent: FC<BoardProps> = ({
   }, [selectedCell]);
 
   function highlightCells() {
-    board.highlightCells(selectedCell);
+    board.highlightCells(selectedCell, currentPlayer?.color);
     updateBoard();
   }
   function updateBoard() {
@@ -54,15 +54,15 @@ const BoardComponent: FC<BoardProps> = ({
       <h2
         style={{ fontSize: "35px", textAlign: "center", paddingBottom: "20px" }}
       >
-        Текущий игрок:
         <b
           style={{
             color: currentPlayer?.color === Colors.WHITE ? "white" : "black",
             textTransform: "uppercase",
           }}
         >
-          {currentPlayer?.color}
+          {currentPlayer?.color + "'s "}
         </b>
+        move
       </h2>
       <div className="board">
         {board.cells.map((row, index) => (

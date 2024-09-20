@@ -9,7 +9,7 @@ export class Queen extends Figure {
   constructor(color: Colors, cell: Cell) {
     super(color, cell);
     this.logo = color === Colors.BLACK ? blackLogo : whiteLogo;
-    this.name = FigureNames.BISHOP;
+    this.name = FigureNames.QUEEN;
   }
   canMove(target: Cell): boolean {
     if (!super.canMove(target)) {
